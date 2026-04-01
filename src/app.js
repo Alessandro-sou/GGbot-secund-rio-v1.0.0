@@ -10,7 +10,7 @@ const app = express();
 // Configurar CORS para aceitar seu frontend
 app.use(cors({
     origin: [
-        'https://seu-frontend.vercel.app', // URL do seu frontend
+        'https://ggapostas.vercel.app/', // URL do seu frontend
         'https://seu-frontend.netlify.app', // Se for Netlify
         'http://localhost:3000',
         'http://localhost:5173'
