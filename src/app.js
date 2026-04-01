@@ -7,27 +7,22 @@ const config = require('./config');
 
 const app = express();
 
-// Configurar CORS para aceitar seu frontend
+// Middlewares
 app.use(cors({
-    origin: [
-        'https://ggapostas.vercel.app/', // URL do seu frontend
-        'https://seu-frontend.netlify.app', // Se for Netlify
-        'http://localhost:3000',
-        'http://localhost:5173'
-    ],
-    credentials: true,
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Rotas
 app.use('/api', routes);
 
-// Rota de health check
+// Health Check
 app.get('/health', (req, res) => {
     res.json({ 
         status: 'OK', 
@@ -37,7 +32,7 @@ app.get('/health', (req, res) => {
 
 // Middleware de erro
 app.use((err, req, res, next) => {
-    console.error(err.stack);
+    console.error('Erro:', err.stack);
     res.status(500).json({
         success: false,
         error: 'Erro interno do servidor'
@@ -46,7 +41,9 @@ app.use((err, req, res, next) => {
 
 // Iniciar servidor
 app.listen(config.port, () => {
-    console.log(`Servidor rodando na porta ${config.port}`);
+    console.log(`🚀 Servidor rodando na porta ${config.port}`);
+    console.log(`📡 Health check: http://localhost:${config.port}/health`);
+    console.log(`🔒 API: http://localhost:${config.port}/api`);
 });
 
 module.exports = app;

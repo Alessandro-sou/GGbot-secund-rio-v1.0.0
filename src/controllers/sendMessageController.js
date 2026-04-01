@@ -4,7 +4,6 @@ const sendMessage = async (req, res) => {
     try {
         const { channelId, message, type, embedData } = req.body;
         
-        // Validações
         if (!channelId) {
             return res.status(400).json({
                 success: false,
@@ -50,6 +49,4 @@ const sendMessage = async (req, res) => {
     }
 };
 
-module.exports = {
-    sendMessage
-};
+module.exports = { sendMessage };

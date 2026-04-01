@@ -12,6 +12,5 @@ module.exports = {
         supportRoleId: process.env.DISCORD_SUPPORT_ROLE_ID,
         directorRoleId: process.env.DISCORD_DIRECTOR_ROLE_ID
     },
-    // Remove a seção jwt
     port: process.env.PORT || 3000
 };

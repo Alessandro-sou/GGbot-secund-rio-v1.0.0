@@ -4,7 +4,6 @@ const moderateUser = async (req, res) => {
     try {
         const { userId, action } = req.body;
         
-        // Validações
         if (!userId) {
             return res.status(400).json({
                 success: false,
@@ -34,6 +33,4 @@ const moderateUser = async (req, res) => {
     }
 };
 
-module.exports = {
-    moderateUser
-};
+module.exports = { moderateUser };

@@ -1,16 +1,13 @@
 {
-  "name": "bot-secundario",
+  "name": "discord-bot-api",
   "version": "1.0.0",
-  "description": "Bot Discord com API",
+  "description": "API para gerenciar bot do Discord",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/app.js",
+    "test": "node test-api.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@supabase/supabase-js": "^2.101.0",
     "cors": "^2.8.5",
@@ -18,5 +15,8 @@
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

@@ -17,6 +17,4 @@ const getBotStatus = async (req, res) => {
     }
 };
 
-module.exports = {
-    getBotStatus
-};
+module.exports = { getBotStatus };
